@@ -30,3 +30,10 @@ jobs:
           push: true
           platforms: linux/riscv64
           tags: ${{ vars.DOCKERHUB_USERNAME }}/archriscv:latest
+      - name: Test
+        run: |
+          docker run \
+            --rm \
+            --platform linux/riscv64 \
+            ${{ vars.DOCKERHUB_USERNAME }}/archriscv:latest \
+            pacman -Syy
